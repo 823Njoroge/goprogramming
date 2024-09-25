@@ -6,7 +6,7 @@ import (
 
 //comment
 /*single line*/
-func main(){
+func man(){
   fmt.Println("GO is fun to learn!")/*display output*/
 
   //explicit declaration of variables

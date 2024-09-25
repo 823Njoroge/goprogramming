@@ -38,15 +38,15 @@ value1 := 42
  //Initializing elements of the array
  for i =0; i < 10; i++{
  array2[i] = i + 50 //setting element at location 
-i to i+50
- }
+i to i+5
+ };
  //Print the value of each elements of array1
  fmt.Println("Elements stored in Array1")
  for j =0; j <3; j++{
  fmt.Printf("Element[%d] = %f \n", j, array1[j])
  }
  //Print the value of each elements of array2
- fmt.Println("Elements stored in Array2)
+ fmt.Println("Elements stored in Array2")
  for j =0; j <10; j++{
  fmt.Printf("Element[%d] = %d \n", j, array2[j])
  }

@@ -2,47 +2,46 @@
 package main
 
 import "fmt"
+	
+
+type employees struct{
+	eName string
+	eNumber int
+	eLocation string
+	
+	
+	}
 
 func main(){
 
 
-	//slice declaration
-	
-	marks:=[]int{7,4,5,2,3,32,45,3}
+var Employee1 employees
+var Employee2 employees
 
-	/*append() and copy()*/
-	var nums []int
-	nums=append(nums,10)
-	fmt.Print("Nums=",nums)
-	printItemsOfSlice(marks) //pass slice to a function
+Employee1.eName="John mwangi"
+Employee2.eNumber=345
+Employee1.eLocation="Nairobi"
 
- if marks == nil {
- fmt.Printf("Slice is Nil")
+fmt.Printf("The name of the first employee is:%S\n",Employee1.eName)
+
+
+theAnswer := -89
+ var result string
+ if theAnswer < 0 {
+ result = "Less than Zero"
+ } else if theAnswer == 0 {
+ result = "Equal to Zero"
+ } else {
+ result = "Greater than Zero"
  }
+ fmt.Println(result)
 }
-// function that accepts a slice and prints its details
- func printItemsOfSlice(x []int) {
- fmt.Printf("Length=%d Capacity=%d Slice=%v\n", 
-len(x), cap(x), x)
-
-//maps
-new_map:=make(map[string]string)
-
-new_map["Book1"]="Social studies"
-new_map["Book2"]="Chem"
-new_map["Book3"]="CRE"
-new_map["Book4"]="English"
-new_map["Book5"]="Math"
-
-fmt.Println(new_map["Book1"])
 
 
 
 
 
 
-
-}
 
 	
 

@@ -1,59 +1,49 @@
+// project path C:\Users\Admin\Desktop\Go programming\codes
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
+
 func main(){
 
-	reader:=bufio.NewReader(os.Stdin)
-	fmt.Print("Hello, how are you?")
-	input,_:=reader.ReadString('\n')
-	fmt.Println("You've entered :",input)
 
-	i1,i2,i3:=23,45,89
-	intSum :=i1+i2+i3
-	fmt.Print(intSum)
+	//slice declaration
+	
+	marks:=[]int{7,4,5,2,3,32,45,3}
+
+	/*append() and copy()*/
+	var nums []int
+	nums=append(nums,10)
+	fmt.Print("Nums=",nums)
+	printItemsOfSlice(marks) //pass slice to a function
+
+ if marks == nil {
+ fmt.Printf("Slice is Nil")
+ }
+}
+// function that accepts a slice and prints its details
+ func printItemsOfSlice(x []int) {
+ fmt.Printf("Length=%d Capacity=%d Slice=%v\n", 
+len(x), cap(x), x)
+
+//maps
+new_map:=make(map[string]string)
+
+new_map["Book1"]="Social studies"
+new_map["Book2"]="Chem"
+new_map["Book3"]="CRE"
+new_map["Book4"]="English"
+new_map["Book5"]="Math"
+
+fmt.Println(new_map["Book1"])
+
+
+
+
+
+
+
+}
 
 	
 
-/*declaring pointers*/
-value1 := 42
- var pointer1 = &value1/*using ampersand to assign*/
- fmt.Println("Value of pointer1: ", *pointer1)
-
- value3:=90
- var pointer2=&value3
- fmt.Print("Value of ponter 2",*pointer2)
-
-
- /*array declaration*/
-
- var array1 = []float32{10.5, 5.2, 2.88}
- var array2 [10]int
- var i, j int
-
-
- //Initializing elements of the array
- for i =0; i < 10; i++{
- array2[i] = i + 50 //setting element at location 
-i to i+5
- };
- //Print the value of each elements of array1
- fmt.Println("Elements stored in Array1")
- for j =0; j <3; j++{
- fmt.Printf("Element[%d] = %f \n", j, array1[j])
- }
- //Print the value of each elements of array2
- fmt.Println("Elements stored in Array2")
- for j =0; j <10; j++{
- fmt.Printf("Element[%d] = %d \n", j, array2[j])
- }
- fmt.Println("Size of array1: ", len(array1))
- fmt.Println("Size of array2: ", len(array2))
-}
-
-
-
-}
+	

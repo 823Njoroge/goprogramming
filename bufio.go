@@ -35,6 +35,20 @@ theAnswer := -89
  result = "Greater than Zero"
  }
  fmt.Println(result)
+
+
+ total := 0
+ for k := 0; k < 5; k++ {
+ total += k
+ }
+ fmt.Println(total)
+
+ if total==10{
+	fmt.Printf("The total is 10")
+ }else{
+	goto theEnd
+ }
+ theEnd: fmt.Printf("End of program")
 }
 
 

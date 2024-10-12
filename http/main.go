@@ -17,10 +17,10 @@ func main() {
  } 
  fmt.Printf("Response Type: %T\n", response)
  defer response.Body.Close()
- bytes, err := ioutil.ReadAll(response.Body)
+ databytes, err := ioutil.ReadAll(response.Body)
  if err != nil {
  panic(err)
  }
- content := string(bytes)
- fmt.Print(content)
+ content := string(databytes)
+ fmt.Println(content)
 }

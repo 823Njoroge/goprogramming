@@ -5,6 +5,8 @@ import (
 	"io/ioutil"
 	"net/http"
 )
+
+//variable that declares the url
 const url = "http://services.explorecalifornia.org/json/tours.php"
 
 func main() {
@@ -12,7 +14,7 @@ func main() {
  response, err := http.Get(url)
  if err != nil {
  panic(err)
- }
+ } 
  fmt.Printf("Response Type: %T\n", response)
  defer response.Body.Close()
  bytes, err := ioutil.ReadAll(response.Body)

@@ -23,6 +23,9 @@ if err !=nil{
 fmt.Println("Length is:",length)
  defer file.Close()
  readFile("./myfile.txt")
+
+
+ 
 } 
 
 
@@ -33,4 +36,8 @@ func readFile(filname string){
 		panic(err)
 	}
 	fmt.Println("The data in the file is \n",string(databyte))
+}
+func reviseUrls(){
+	const url string="https//:dekut.ac.ke"
+	fmt.Println(url)
 }

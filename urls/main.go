@@ -19,4 +19,4 @@ func main() {
 	fmt.Print("Path is :",result.Path)
 	fmt.Print(result.Port())
 	fmt.Print(result.RawQuery)
-}
+} 

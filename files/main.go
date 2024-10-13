@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 )
+const url string="https//:dekut.ac.ke"
 
 func main() {
 	fmt.Println("Welcome to files in golang")
@@ -38,6 +39,9 @@ func readFile(filname string){
 	fmt.Println("The data in the file is \n",string(databyte))
 }
 func reviseUrls(){
-	const url string="https//:dekut.ac.ke"
+	
 	fmt.Println(url)
+	if url!=nil{
+		panic(err)
+	}
 }

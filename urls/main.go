@@ -8,7 +8,7 @@ import (
 
 const myurl string="https://github.com/823Njoroge"
 func main() {
-	fmt.Println("I am learning about urls in golang")
+	fmt.Println("I am learning about urls in golang in 2024")
 	fmt.Println(myurl)
 	result, err:=url.Parse(myurl)
 	if err!=nil{

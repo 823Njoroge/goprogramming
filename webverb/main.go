@@ -1,13 +1,18 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
 )
-
+type course struct{
+	Name string `json:"coursename"`
+	Price int 
+	
+}
 func main() {
 	fmt.Println("Hello, lets learn web requests")
 	//PerformGetRequest()
@@ -63,4 +68,26 @@ func PerformPostFormRequest(){
 	defer response.Body.Close()
 	content,_:=ioutil.ReadAll(response.Body)
 	fmt.Println(string(content) )
+}
+
+func decodeJson(){
+	jsonDataFromWeb:=[]byte(`
+	"firstname":"Ianoh"
+	"lastname":"ke"
+	"course":"IT"
+	`)
+
+	var lcsCourse course
+	checkValid:=json.Valid(jsonDataFromWeb)
+	
+
+
+	if checkValid{
+		fmt.Println("Json was valid")
+		json.Unmarshal(jsonDataFromWeb,&lcsCourse)
+		fmt.Printf("%#v\n",lcsCourse)
+
+	}else{
+		fmt.Println("Json was not valid")
+	}
 }

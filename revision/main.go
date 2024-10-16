@@ -16,7 +16,7 @@ func main() {
 		area:= length *width
 		fmt.Print("The area of the rectangle is",area)
 
-	
+	getPerimeter(width,length)
 
 
 }

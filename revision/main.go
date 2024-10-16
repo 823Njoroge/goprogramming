@@ -17,6 +17,26 @@ func main() {
 		fmt.Print("The area of the rectangle is",area)
 
 	getPerimeter(width,length)
-
+checkPrime()
 
 }
+func isPrime(num int) bool {
+	if num < 2 {
+		return false
+	}
+	for i := 2; i*i <= num; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func checkPrime() {
+	for i := 1; i <= 100; i++ {
+		if isPrime(i) {
+			fmt.Println(i)
+		}
+	}
+}
+	

@@ -15,7 +15,7 @@ func main() {
 	fmt.Println("JSON encoding in Go")
 	encodeJSON()
 }
-
+//json data
 func encodeJSON() {
 	league := []EPL{
 		{"Chelsea", 23, 56},
@@ -27,11 +27,12 @@ func encodeJSON() {
 	// Printing the struct array for reference
 	fmt.Println("Original Struct Data:", league)
 
-	// Encoding to JSON
+	// Encoding to 
 	finalJSON, err := json.MarshalIndent(league, "", "\t")
 	if err != nil {
 		panic(err)
 	}
+	
 
 	// Printing the encoded JSON
 	fmt.Printf("Encoded JSON:\n%s\n", finalJSON)

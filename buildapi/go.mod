@@ -1,0 +1,3 @@
+module buildapi
+
+go 1.23.1

@@ -1,7 +1,9 @@
 package main
 
 import (
+	"crypto/rand"
 	"fmt"
+	"time"
 )
 func getPerimeter(width,length int){
 	perimeter:=width*2 + length*2
@@ -18,6 +20,7 @@ func main() {
 
 	getPerimeter(width,length)
 checkPrime()
+getRandom()
 
 }
 func isPrime(num int) bool {
@@ -39,4 +42,20 @@ func checkPrime() {
 		}
 	}
 }
+
+func getRandom() {
+	rand.Seed(time.Now().Unix())
+	dow := rand.Intn(7) + 1
+	fmt.Println("Day: ", dow)
+	var result string
+	switch dow {
+	case 1:
+	result = "It's Sunday"
+	case 2:
+	result = "It's Monday"
+	default:
+	result = "It's some other day"
+	}
+	fmt.Println(result)
+   }
 	

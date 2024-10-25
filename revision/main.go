@@ -1,28 +1,33 @@
 package main
 
 import (
-	"crypto/rand"
 	"fmt"
+	"math/rand"
 	"time"
 )
-func getPerimeter(width,length int){
-	perimeter:=width*2 + length*2
-	fmt.Print("The perimeter is:",perimeter)
-	
+
+// Function to calculate and print the perimeter of a rectangle
+func getPerimeter(width, length int) {
+	perimeter := 2*(width + length)
+	fmt.Println("The perimeter is:", perimeter)
 }
-//first challenge
+
+// Main function
 func main() {
 	width := 24
 	length := 23
-	
-		area:= length *width
-		fmt.Print("The area of the rectangle is",area)
 
-	getPerimeter(width,length)
-checkPrime()
-getRandom()
+	// Calculate and print the area
+	area := length * width
+	fmt.Println("The area of the rectangle is:", area)
 
+	// Call other functions
+	getPerimeter(width, length)
+	checkPrime()
+	getRandom()
 }
+
+// Function to check if a number is prime
 func isPrime(num int) bool {
 	if num < 2 {
 		return false
@@ -35,7 +40,9 @@ func isPrime(num int) bool {
 	return true
 }
 
+// Function to print prime numbers from 1 to 100
 func checkPrime() {
+	fmt.Println("Prime numbers between 1 and 100:")
 	for i := 1; i <= 100; i++ {
 		if isPrime(i) {
 			fmt.Println(i)
@@ -43,19 +50,32 @@ func checkPrime() {
 	}
 }
 
+// Function to generate and print a random day of the week
 func getRandom() {
-	rand.Seed(time.Now().Unix())
-	dow := rand.Intn(7) + 1
-	fmt.Println("Day: ", dow)
+	rand.Seed(time.Now().UnixNano()) // Seed the random generator
+
+	day := rand.Intn(7) + 1 // Random number between 1 and 7
+	fmt.Println("Random day number:", day)
+
 	var result string
-	switch dow {
+	switch day {
 	case 1:
-	result = "It's Sunday"
+		result = "It's Sunday"
 	case 2:
-	result = "It's Monday"
+		result = "It's Monday"
+	case 3:
+		result = "It's Tuesday"
+	case 4:
+		result = "It's Wednesday"
+	case 5:
+		result = "It's Thursday"
+	case 6:
+		result = "It's Friday"
+	case 7:
+		result = "It's Saturday"
 	default:
-	result = "It's some other day"
+		result = "Invalid day"
 	}
+
 	fmt.Println(result)
-   }
-	
+}

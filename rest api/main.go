@@ -7,9 +7,9 @@ type todo struct {
 }
 
 var tados = []todo{
-	{ID: "1", Item: "Read a book", Compleleted: false},
-	{ID: "2", Item: "Learn golang", Compleleted: yes},
-	{ID: "3", Item: "Go shopping", Compleleted: false},
+	{ID: "1", Item: "Read a book", Completed: false},
+	{ID: "2", Item: "Learn golang", Completed: yes},
+	{ID: "3", Item: "Go shopping", Completed: false},
 }
 
 func main() {

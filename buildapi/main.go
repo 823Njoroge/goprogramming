@@ -23,7 +23,7 @@ type Author struct {
 	Website  string `json:"website"`
 }
 
-// Fake database
+// Fake database- uses a slice from Course
 var courses []Course
 
 // Checks if the course is empty

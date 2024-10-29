@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 )
 
 // Function to calculate and print the perimeter of a rectangle
@@ -12,9 +10,10 @@ func getPerimeter(width, length int) {
 	fmt.Println("The perimeter is:", perimeter)
 }
 
-// Main function
+/*/ Main function
 func main() {
-	width := 24
+	}
+		width := 24
 	length := 23
 
 	// Calculate and print the area
@@ -78,4 +77,41 @@ func getRandom() {
 	}
 
 	fmt.Println(result)
+}*/
+
+//Handson challenge
+// isOdd checks if a number is odd
+func isOdd(num int) bool {
+	return num%2 != 0
+}
+
+// filter applies the isOdd function to each number in the slice
+func filter(numbers []int) []int {
+	var result []int
+	for _, num := range numbers {
+		if isOdd(num) {
+			result = append(result, num)
+		}
+	}
+	return result
+}
+
+func main() {
+	// Define the slice of numbers (fixed the syntax error in the original slice)
+	numbers := []int{3, 2, 4, 5, 6, 7, 8, 9, 8}
+
+	// Filter odd numbers
+	oddNumbers := filter(numbers)
+
+	// Print all numbers and whether they're odd or even
+	fmt.Println("Checking all numbers:")
+	for _, num := range numbers {
+		if isOdd(num) {
+			fmt.Printf("%d is an odd number\n", num)
+		} else {
+			fmt.Printf("%d is an even number\n", num)
+		}
+	}
+
+	fmt.Println("\nFiltered odd numbers:", oddNumbers)
 }

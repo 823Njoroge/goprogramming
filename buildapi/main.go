@@ -67,7 +67,7 @@ func getAllCourses(w http.ResponseWriter, r *http.Request) {
 func getOneCourse(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r) // Get ID from the request URL
-	fmt.Print(params.Type)
+
 
 	// Loop through courses to find a matching ID
 	for _, course := range courses {

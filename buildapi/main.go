@@ -111,6 +111,8 @@ w.Header().Set("Content type","application/json")
 params:=mux.Vars(r)
 
 
+
+//loop,ID,remove, add with my ID
 for index,course:=range courses{
 	if course.CourseId==params["id"]{
 		courses=append(courses[:index],courses[index+1:]...)

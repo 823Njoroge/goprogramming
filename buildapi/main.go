@@ -82,7 +82,9 @@ func getOneCourse(w http.ResponseWriter, r *http.Request) {
 // Create a new course
 func createCourse(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-
+if r.Body==nil{
+	json.NewEncoder(w).Encode("Please send some")
+}
 	var course Course
 	_ = json.NewDecoder(r.Body).Decode(&course) // Decode request body into course object
 
@@ -94,9 +96,31 @@ func createCourse(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Assign a random ID and add the course to the database
+	rand.Seed(time.Now().UnixNano())
 	course.CourseId = strconv.Itoa(rand.Intn(100))
 	courses = append(courses, course)
 
 	// Return the newly created course
 	json.NewEncoder(w).Encode(course)
+	return
+}
+
+func updateOneCourse(w http.ResponseWriter,r *http.Request){
+w.Header().Set("Content type","application/json")
+
+params:=mux.Vars(r)
+
+
+for index,course:=range courses{
+	if course.CourseId==params["id"]{
+		courses=append(courses[:index],courses[index+1:]...)
+		var course Course
+		_ =json.NewEncoder(r.Body).Decode(&
+		course)
+		course.CourseId=params["id"]
+		courses=append(courses,course)
+		json.NewEncoder(w).Encode(course)
+		return
+	}
+} 
 }

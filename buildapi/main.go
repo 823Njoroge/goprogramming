@@ -105,24 +105,34 @@ if r.Body==nil{
 	return
 }
 
-func updateOneCourse(w http.ResponseWriter,r *http.Request){
-w.Header().Set("Content type","application/json")
+func updateOneCourse(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "application/json")
 
-params:=mux.Vars(r)
+    params := mux.Vars(r)
 
-
-
-//loop,ID,remove, add with my ID
-for index,course:=range courses{
-	if course.CourseId==params["id"]{
-		courses=append(courses[:index],courses[index+1:]...)
-		var course Course
-		_ =json.NewEncoder(r.Body).Decode(&
-		course)
-		course.CourseId=params["id"]
-		courses=append(courses,course)
-		json.NewEncoder(w).Encode(course)
-		return
-	}
-} 
+    // Loop through courses to find the course with the given ID, remove it, and add the updated one
+    for index, course := range courses {
+        if course.CourseId == params["id"] {
+            // Remove the course from the slice
+            courses = append(courses[:index], courses[index+1:]...)
+            
+            // Decode the new course data from the request body
+            var updatedCourse Course
+            err := json.NewDecoder(r.Body).Decode(&updatedCourse)
+            if err != nil {
+                http.Error(w, "Invalid request payload", http.StatusBadRequest)
+                return
+            }
+            
+            updatedCourse.CourseId = params["id"]
+            courses = append(courses, updatedCourse)
+            
+            json.NewEncoder(w).Encode(updatedCourse)
+            return
+        }
+    }
+    
+    // Return a 404 error if the course was not found
+    http.Error(w, "Course not found", http.StatusNotFound)
 }
+
